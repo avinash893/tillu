@@ -1,48 +1,39 @@
-# 🤖 Tillu — Intelligent Discord AI Assistant
+# Tillu
 
-**Tillu** is an autonomous, multi-tenant Discord AI assistant powered by Google Gemini and tailored for gaming and community servers. Featuring dynamic personality controls, a 1,000+ meme engine with situational pacing, real-time memory learning, and autonomous self-evolution.
+Tillu is an intelligent Discord assistant built for community and gaming servers. It uses Google Gemini for conversational AI and comes with built-in server memory, customizable autonomous rules, and a situational meme engine designed not to sound repetitive.
 
----
+## Key Features
 
-## 🚀 Core Features
+### Situational Meme Engine
+- Context-aware banter: Memes trigger naturally in conversation rather than on every single reply.
+- Extensive library: Contains a curated collection of over 1,000 trending, classic Bollywood, Desi, and gaming references.
+- Anti-repetition: Tracks recently used references so jokes stay fresh.
 
-### 1. 🎭 1,000+ Situational Meme Engine
-- **Context-Aware Pacing**: Only triggers memes when appropriate (~20% of casual banter) to avoid repetitive spam.
-- **Vast Knowledgebase**: 1,000+ indexed Desi, Bollywood, and gaming meme dialogues and cultural references.
-- **Anti-Repetition Tracking**: Cooldown prevents using the same meme twice in a row.
+### Server Memory (#tillu-memory)
+- Learns community inside jokes, lore, and member facts.
+- Vision support to parse and remember uploaded image memes and screenshots.
 
-### 2. 🧠 Living Server Memory (`#tillu-memory`)
-- **Community Lore**: Remembers inside jokes, user facts, and custom server lore.
-- **Vision AI Support**: Inspects uploaded meme images, captures context, and integrates them into memory.
+### Custom Autonomous Rules (#tillu-updates)
+- Server admins can teach Tillu specific behavior triggers in plain English (for example: "When someone asks about rules, tell them to check #announcements").
+- Rules are saved persistently and applied directly to conversational reasoning.
 
-### 3. 📜 Autonomous Behavior Rules (`#tillu-updates`)
-- **Natural Language Custom Rules**: Admins can set behavior triggers on the fly (e.g., *"If someone asks X, answer Y"*).
-- **Instant Enforcement**: Rules are injected directly into Tillu's reasoning loop.
+### Dynamic Personality Styles
+- Switch between distinct styles: Sarcastic & Witty, Short & Punchy, Roast Mode, or Helpful & Friendly.
 
-### 4. 🎛️ Dynamic Personality Modes
-- **Sarcastic & Witty**: Humorous, clever comebacks and gaming banter.
-- **Short & Punchy**: Rapid, one-line answers.
-- **Roast Mode**: Playful, savage banter for community channels.
-- **Helpful & Friendly**: Professional, polite, and detailed explanations.
+### Deduplicated Self-Audit Engine
+- Runs automated checks on recent queries and error logs every 4.8 hours.
+- Generates new robustness rules only when actual task errors happen, preventing repetitive audit reports.
 
-### 5. 🔬 Deduplicated Self-Evolution Engine
-- **5x Daily Self-Audits**: Reviews recent interactions, error rates, and intent accuracy every 4.8 hours.
-- **Smart Deduplication**: Only generates new robustness rules when actual failures occur, preventing repetitive reports.
+### Multi-Server Setup
+- Automatically sets up dedicated channels on server join.
+- Built-in per-user cooldowns to prevent spam and rate limits.
 
-### 6. 🛡️ Safe & Scalable Multi-Tenant Architecture
-- **Anti-Spam Cooldown**: Built-in rate limiting per user to protect against API quota limits.
-- **Zero-Friction Setup**: One-click category (`📁 TILLU`) and channel auto-provisioning upon server join.
+## Project Architecture
 
----
-
-## 📂 Architecture & File Roadmap
-
-| File | Purpose |
-| :--- | :--- |
-| `config.py` | Central configuration, environment variables, paths, and bot intents |
-| `meme_engine.py` | 1,000+ indexed meme bank with emotion tagging and anti-repeat logic |
-| `memory_manager.py` | Per-server lore, user facts, and meme memory bank |
-| `rule_manager.py` | Dynamic natural language rule persistence and injection |
-| `self_reflection.py` | 5x daily autonomous self-auditor with deduplication fix |
-| `ai_engine.py` | Gemini AI caller, dual-tone system prompt builder, and vision processor |
-| `bot.py` | Discord client events, commands (`/ask`, `/setup`, `/settings`), and message listeners |
+- `config.py`: Environment configuration, tokens, paths, and Discord intents.
+- `meme_engine.py`: Indexed meme repository, emotion tagging, and cooldown logic.
+- `memory_manager.py`: Persistent storage for guild lore, user facts, and meme history.
+- `rule_manager.py`: Custom rule storage and prompt injection.
+- `self_reflection.py`: Autonomous audit loop with duplicate-prevention filters.
+- `ai_engine.py`: Gemini client, personality prompt builder, and image handling.
+- `bot.py`: Discord gateway event handlers, slash commands, and message listeners.
